@@ -73,18 +73,16 @@ export function StepperPreviousButton({
   size = 'sm',
   type = 'button',
   variant = 'secondary',
-  preventDefault = false,
+  onClick,
   ...props
-}: Omit<React.ComponentPropsWithoutRef<typeof Button>, 'onClick'> & {
-  preventDefault?: boolean;
-}) {
+}: React.ComponentPropsWithoutRef<typeof Button>) {
   const { previousStep } = useStepper();
   return (
     <Button
       type={type}
       variant={variant}
       size={size}
-      onClick={!preventDefault ? previousStep : undefined}
+      onClick={onClick ?? previousStep}
       {...props}
     >
       Anterior
@@ -95,19 +93,12 @@ export function StepperPreviousButton({
 export function StepperNextButton({
   size = 'sm',
   type = 'button',
-  preventDefault = false,
+  onClick,
   ...props
-}: Omit<React.ComponentPropsWithoutRef<typeof Button>, 'onClick'> & {
-  preventDefault?: boolean;
-}) {
+}: React.ComponentPropsWithoutRef<typeof Button>) {
   const { nextStep } = useStepper();
   return (
-    <Button
-      type={type}
-      size={size}
-      onClick={!preventDefault ? nextStep : undefined}
-      {...props}
-    >
+    <Button type={type} size={size} onClick={onClick ?? nextStep} {...props}>
       Próximo
     </Button>
   );
