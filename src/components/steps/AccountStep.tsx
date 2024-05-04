@@ -1,11 +1,17 @@
-import { StepperNextButton } from '../Stepper';
+import { StepHeader } from '../StepHeader';
+import { StepperFooter, StepperNextButton } from '../Stepper';
 
 export function AccountStep() {
   return (
     <div>
-      <h1>Account step</h1>
+      <StepHeader
+        title="Conta"
+        description="Seus dados de acesso à plataforma"
+      />
 
-      <StepperNextButton />
+      <StepperFooter>
+        <StepperNextButton />
+      </StepperFooter>
     </div>
   );
 }

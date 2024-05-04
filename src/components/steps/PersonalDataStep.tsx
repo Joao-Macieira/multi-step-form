@@ -1,12 +1,22 @@
-import { StepperNextButton, StepperPreviousButton } from '../Stepper';
+import { StepHeader } from '../StepHeader';
+import {
+  StepperFooter,
+  StepperNextButton,
+  StepperPreviousButton,
+} from '../Stepper';
 
 export function PersonalDataStep() {
   return (
     <div>
-      <h1>Personal data step</h1>
+      <StepHeader
+        title="Dados pessoais"
+        description="Conte-nos mais sobre você"
+      />
 
-      <StepperPreviousButton />
-      <StepperNextButton />
+      <StepperFooter>
+        <StepperPreviousButton />
+        <StepperNextButton />
+      </StepperFooter>
     </div>
   );
 }

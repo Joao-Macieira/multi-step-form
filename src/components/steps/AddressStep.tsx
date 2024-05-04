@@ -1,16 +1,18 @@
 import { Button } from '../Button';
-import { StepperPreviousButton } from '../Stepper';
+import { StepHeader } from '../StepHeader';
+import { StepperFooter, StepperPreviousButton } from '../Stepper';
 
 export function AddressStep() {
   return (
     <div>
-      <h1>Address step</h1>
+      <StepHeader title="Endereço" description="De onde você é" />
 
-      <StepperPreviousButton />
-
-      <Button type="submit" size="sm">
-        Finalizar
-      </Button>
+      <StepperFooter>
+        <StepperPreviousButton />
+        <Button type="submit" size="sm">
+          Finalizar
+        </Button>
+      </StepperFooter>
     </div>
   );
 }

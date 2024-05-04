@@ -41,23 +41,29 @@ export function Stepper({ steps, initialStep = 0 }: IStepperProps) {
         nextStep,
       }}
     >
-      <ul className="space-x-6">
-        {steps.map((step, index) => (
-          <li
-            key={step.label}
-            className={cn(
-              'inline-block rounded-md px-2 py-1 text-xs',
-              index === currentStep && 'bg-primary text-primary-foreground',
-            )}
-          >
-            {String(index + 1).padStart(2, '0')}. {step.label}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul className="space-x-6">
+          {steps.map((step, index) => (
+            <li
+              key={step.label}
+              className={cn(
+                'inline-block rounded-md px-2 py-1 text-xs',
+                index === currentStep && 'bg-primary text-primary-foreground',
+              )}
+            >
+              {String(index + 1).padStart(2, '0')}. {step.label}
+            </li>
+          ))}
+        </ul>
 
-      <div className="mt-10">{steps[currentStep].content}</div>
+        <div className="mt-10">{steps[currentStep].content}</div>
+      </div>
     </StepperContext.Provider>
   );
+}
+
+export function StepperFooter({ children }: { children: React.ReactNode }) {
+  return <footer className="mt-6 flex justify-end gap-2">{children}</footer>;
 }
 
 export function StepperPreviousButton() {
